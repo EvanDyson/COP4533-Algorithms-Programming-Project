@@ -1,2 +1,2 @@
 default:
-	javac -d ./ ./algorithms/src/main/*.java
+	javac -d ./ ./algorithms/src/main/ALGs/*.java

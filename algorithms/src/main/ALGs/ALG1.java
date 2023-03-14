@@ -1,3 +1,4 @@
+package ALGs;
 /* 
 We are given a array of price predictions for m stocks for n consecutive days. 
 The price of stock i for day j is A[i][j] for i = 1, ... ,m and j = 1, ... ,n. 
@@ -20,6 +21,8 @@ for n days, find a single transaction (buy and sell) that gives maximum prot.
  */
 
 // Evan
+
+
 
  public class ALG1 {
 	public static void main(String args[]){  

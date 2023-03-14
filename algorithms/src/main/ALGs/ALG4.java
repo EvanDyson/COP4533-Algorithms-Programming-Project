@@ -1,6 +1,7 @@
-// Maryam
+package ALGs;
 
-public class ALG3 {
+
+public class ALG4 {
     public static void main(String[] args) {
         
     }
