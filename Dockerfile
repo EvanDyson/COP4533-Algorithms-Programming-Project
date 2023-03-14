@@ -3,4 +3,4 @@ WORKDIR /tmp
 COPY . .
 RUN yum update -y && yum install -y make
 RUN make
-CMD ["java","ALG_Tester"]
+CMD ["java","ALGs.ALG_Tester"]
