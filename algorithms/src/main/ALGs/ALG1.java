@@ -25,9 +25,12 @@ for n days, find a single transaction (buy and sell) that gives maximum prot.
 
 
 public class ALG1 {
-    public static void run_ALG1() {
-        System.out.println("ALG1 GOOD");
-        System.out.println("===========================");
+    public static int run_ALG1() {
+        //System.out.println("ALG1 GOOD");
+
+        // case 1 where one stock and one day, return 0 profit.
+        // case 2 where one stock and multiple days, return the highest and lowest price day given that the lowest is before the highest
+        // case 3 where more than 1 stock, return the highest different between the highest and lowest price day given that the lowest is before the highest on any stock
         int[][] stockList = {
             {51,7,23,57,53,16},
             {52,10,54,84,7,19},
@@ -36,20 +39,32 @@ public class ALG1 {
             {80,82,81,73,33,12},
             {64,66,82,14,7,3}
         };
-        for (int i = 0; i < stockList.length; i++)
-        {
-            for (int j = 0; j < stockList[0].length; j++)
-            {
-                if (j == stockList[0].length - 1)
-                    System.out.print(stockList[i][j]);
+        int[][] stockList2 = {
+            {51,7,23,57,53,16},
+        };// answer is 50 (57 - 7)
+
+        int minPrice = stockList[0][0];
+        int maxProfit = 0;
+
+        // i = stocks
+        // j = days
+
+        int[][] copy = stockList;
+        for (int i = 0; i < copy.length; i++) {
+            for (int j = 0; j < copy[0].length; j++) {
+
+                if (j == copy[0].length - 1)
+                    System.out.print(copy[i][j]);
                 else {
-                    System.out.print(stockList[i][j]);
+                    System.out.print(copy[i][j]);
                     System.out.print(", ");
                 }
+
             }
+            // new line of matrix
             System.out.println();
         }
-	    //System.out.println("Hello world!!");  
-        System.out.println("===========================");
+        //System.out.println("Hello world!!");  
+        return maxProfit;
     }
 }
