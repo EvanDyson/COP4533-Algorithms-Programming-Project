@@ -25,7 +25,6 @@ for n days, find a single transaction (buy and sell) that gives maximum prot.
 
 
 public class ALG1 {
-    
     public static void run_ALG1() {
         System.out.println("ALG1 GOOD");
         System.out.println("===========================");
@@ -53,9 +52,4 @@ public class ALG1 {
 	    //System.out.println("Hello world!!");  
         System.out.println("===========================");
     }
-
-	public static void main(String args[]){  
-        ALG1 obj1 = new ALG1();
-        obj1.run_ALG1();
-	}  
 }
