@@ -5,8 +5,11 @@ package ALGs;
 
 public class ALG2 {
     public static int run_ALG2() {
-        System.out.print("|| Algorithm 2: ");
         int maxProfit = 0;
-        return maxProfit;
+        
+        
+        
+        
+        System.out.print("|| Algorithm 2: ");   return maxProfit;
     }
 }
