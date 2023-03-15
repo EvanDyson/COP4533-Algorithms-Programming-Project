@@ -31,7 +31,7 @@ public class ALG1 {
         // case 1 where one stock and one day, return 0 profit.
         // case 2 where one stock and multiple days, return the highest and lowest price day given that the lowest is before the highest
         // case 3 where more than 1 stock, return the highest different between the highest and lowest price day given that the lowest is before the highest on any stock
-        int[][] stockList = {
+        int[][] stockList1 = {
             {51,7,23,57,53,16},
             {52,10,54,84,7,19},
             {71,16,25,19,20,39},
@@ -48,9 +48,16 @@ public class ALG1 {
             {100}
         };// answer is 0
 
+        int[][] stockList4 = {
+            { 100 },
+            {80, 23, 13, 3},
+            {5, 160},
+            {3, 6, 8, 10, 11}
+        };// answer is 155 (160 - 5)
+
         // i = stocks
         // j = days
-        int[][] copy = stockList;
+        int[][] copy = stockList4;
         int maxProfit = 0;
 
         for (int i = 0; i < copy.length; i++) {
@@ -62,8 +69,7 @@ public class ALG1 {
                     minPrice = copy[i][j];
                 else {
                     int currentProfit = copy[i][j] - minPrice;
-                    if (currentProfit > maxProfitPerStock)
-                        maxProfitPerStock = currentProfit;
+                    maxProfitPerStock = Math.max(currentProfit, maxProfitPerStock);
                 }
             }
 
