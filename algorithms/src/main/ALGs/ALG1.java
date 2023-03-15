@@ -38,33 +38,42 @@ public class ALG1 {
             {56,72,1,81,34,21},
             {80,82,81,73,33,12},
             {64,66,82,14,7,3}
-        };
+        };// answer is in row 4 80 (81 - 1)
+
         int[][] stockList2 = {
             {51,7,23,57,53,16},
         };// answer is 50 (57 - 7)
 
-        int minPrice = stockList[0][0];
-        int maxProfit = 0;
+        int[][] stockList3 = {
+            {100}
+        };// answer is 0
 
         // i = stocks
         // j = days
-
         int[][] copy = stockList;
+        int maxProfit = 0;
+
         for (int i = 0; i < copy.length; i++) {
-            for (int j = 0; j < copy[0].length; j++) {
+            int maxProfitPerStock = 0;
+            int minPrice = copy[i][0];
 
-                if (j == copy[0].length - 1)
-                    System.out.print(copy[i][j]);
+            for (int j = 0; j < copy[i].length; j++) {
+                if (copy[i][j] < minPrice)
+                    minPrice = copy[i][j];
                 else {
-                    System.out.print(copy[i][j]);
-                    System.out.print(", ");
+                    int currentProfit = copy[i][j] - minPrice;
+                    if (currentProfit > maxProfitPerStock)
+                        maxProfitPerStock = currentProfit;
                 }
-
             }
-            // new line of matrix
-            System.out.println();
+
+            // check if the current stock's max profit is larger than the overall max profit
+            // if it is replace it, otherwise continue
+            if (maxProfitPerStock > maxProfit)
+                maxProfit = maxProfitPerStock;
         }
-        //System.out.println("Hello world!!");  
+
+        System.out.print("|| Algorithm 1: ");
         return maxProfit;
     }
 }
