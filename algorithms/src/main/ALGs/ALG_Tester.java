@@ -1,5 +1,7 @@
 package ALGs;
 
+// docker compose build && docker compose up
+
 public class ALG_Tester {
     public static void main(String[] args) {
         int[][] stockList1 = {
@@ -41,6 +43,8 @@ public class ALG_Tester {
 
         int[][] copy = stockList5;
 
+        // For quick sending of the same matrix, send copy and change the instance of copy's matrix
+        // Otherwise, you can send individual matrixes to certain algorithms.
         System.out.println("============================");
         System.out.println(ALG1.run_ALG1(copy));
         System.out.println(ALG2.run_ALG2(copy));
