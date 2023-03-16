@@ -2,7 +2,7 @@ package ALGs;
 
 
 public class ALG4 {
-    public static int run_ALG4() {
+    public static int run_ALG4(int[][] copy) {
         int maxProfit = 0;
 
 
