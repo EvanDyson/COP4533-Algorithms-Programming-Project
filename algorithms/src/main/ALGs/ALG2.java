@@ -14,7 +14,7 @@ public class ALG2 {
             int maxProfitPerStock = 0;
             int minPrice = copy[i][0];
 
-            for (int j = 0; j < copy[i].length; j++) {
+            for (int j = 1; j < copy[i].length; j++) {
                 if (copy[i][j] < minPrice)
                     minPrice = copy[i][j];
                 else {

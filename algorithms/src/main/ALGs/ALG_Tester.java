@@ -1,6 +1,10 @@
 package ALGs;
 
-// docker compose build && docker compose up
+/*
+Evan: ALG 1, 2, 4
+Maryam: ALG 3, 5, 6
+docker compose build && docker compose up
+*/
 
 public class ALG_Tester {
     public static void main(String[] args) {
