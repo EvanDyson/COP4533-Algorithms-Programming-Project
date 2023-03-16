@@ -5,6 +5,7 @@ public class part4 {
     public static void part4() {
         int[][] copy = createMatrix();
         run_problem1(copy);
+        run_problem2(copy);
     }
 
     public static int[][] createMatrix() {
@@ -53,6 +54,14 @@ public class part4 {
                 }
             }
         }
-        System.out.println("|| Part 4: " + stock + " " + buyDay + " " + sellDay);
+        System.out.println("|| Part 4 Problem 1: " + stock + " " + buyDay + " " + sellDay);
+    }
+
+    public static void run_problem2(int[][] copy) {
+        int maxProfit = 0;
+
+        int stock = 0, buyDay = 0, sellDay = 0;
+
+        System.out.println("|| Part 4 Problem 2: " + stock + " " + buyDay + " " + sellDay);
     }
 }
