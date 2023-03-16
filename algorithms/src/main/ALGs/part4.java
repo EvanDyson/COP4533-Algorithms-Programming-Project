@@ -4,7 +4,7 @@ import java.util.*;
 public class part4 {
     public static void part4() {
         int[][] copy = createMatrix();
-        run_part4(copy);
+        run_problem1(copy);
     }
 
     public static int[][] createMatrix() {
@@ -25,7 +25,7 @@ public class part4 {
         return newMatrix;
     }
 
-    public static void run_part4(int[][] copy) {
+    public static void run_problem1(int[][] copy) {
         int maxProfit = 0;
 
         int stock = 0, buyDay = 0, sellDay = 0;
