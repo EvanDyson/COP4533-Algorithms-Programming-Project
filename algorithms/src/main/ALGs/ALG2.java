@@ -31,6 +31,6 @@ public class ALG2 {
                 maxProfit = maxProfitPerStock;
         }
         
-        System.out.print("|| Algorithm 2: ");       return maxProfit;
+        return maxProfit;
     }
 }

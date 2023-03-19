@@ -24,6 +24,6 @@ public class ALG1 {
                 }
             }
         }
-        System.out.print("|| Algorithm 1: ");       return maxProfit;
+        return maxProfit;
     }
 }

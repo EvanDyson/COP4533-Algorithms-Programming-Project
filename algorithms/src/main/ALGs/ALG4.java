@@ -1,23 +1,82 @@
 // Evan
 
 package ALGs;
+import java.util.*;
+
+import javax.xml.bind.JAXB;
 
 public class ALG4 {
     public static int run_ALG4(int[][] copy, int k) {
         int maxProfit = 0;
+        System.out.println("k = " + k);
 
-        /*
-         Initialize two arrays buy and sell, both of size m, to keep track of the minimum buy price and maximum sell price seen so far for each stock. Initialize all elements of buy to Integer.MAX_VALUE and all elements of sell to 0.
-Loop through each day j from 1 to n:
-Loop through each stock i from 1 to m:
-Update the value of buy[i] to be the minimum of its current value and A[i][j] - sell[i-1]. This means that we are considering buying stock i on day j and selling it on the previous day, after selling all previously bought stocks.
-Update the value of sell[i] to be the maximum of its current value and A[i][j] - buy[i]. This means that we are considering selling stock i on day j, after buying it at some previous day with a minimum price.
-The maximum profit after performing at most k transactions can be found in the last element of the sell array. Return this value.
+        if (k == 0)
+            maxProfit = 0;
+        else if (k == 1) {
+            for (int i = 0; i < copy.length; i++) {
+                int maxProfitPerStock = 0;
+                int minPrice = copy[i][0];
+                for (int j = 1; j < copy[i].length; j++) {
+                    if (copy[i][j] < minPrice)
+                        minPrice = copy[i][j];
+                    else {
+                        int currentProfit = copy[i][j] - minPrice;
+                        maxProfitPerStock = Math.max(currentProfit, maxProfitPerStock);
+                    }
+                }
+                if (maxProfitPerStock > maxProfit)
+                    maxProfit = maxProfitPerStock;
+            }
+        } else {
+            int[][][] profit = new int[k][copy.length][copy[0].length];
+            int[][][] buyDay = new int[k][copy.length][copy[0].length];
+            int[][][] sellDay = new int[k][copy.length][copy[0].length];
 
-         */
+            boolean holding = false;
 
+            for (int t = 0; t < k; t++) {
+                for (int i = 0; i < copy.length; i++) {
+                    int maxProfitPerStock = 0;
+                    int minPrice = copy[i][0];
+                    int minDay = 0;
+                    for (int j = 1; j < copy[0].length; j++) {
+                        sellDay[t][i][j] = j;
+                        if (copy[i][j] <= minPrice) {
+                            minPrice = copy[i][j];
+                            minDay = j;
+                            buyDay[t][i][j] = j;
+                        }
+                        else {
+                            profit[t][i][j] = copy[i][j] - minPrice;
+                            buyDay[t][i][j] = minDay;
+                            //maxProfitPerStock = Math.max(profit[t][i][j], maxProfitPerStock);
+                        }
+                    }
+                }
 
+            }
 
-        System.out.print("|| Algorithm 4: ");   return maxProfit;
+            //for (int x = 0; x < k; x++)
+            //maxProfit += profit;
+            for (int x = 0; x < k; x++) {
+                for (int y = 0; y < copy.length; y++) {
+                    for (int z = 0; z < copy[0].length; z++) {
+                        if (z == copy[0].length - 1) {
+                            System.out.print("profit:" + profit[x][y][z]);
+                            System.out.print(" buyday:" + buyDay[x][y][z]);
+                            System.out.println(" sellday:" + sellDay[x][y][z]);
+                        }
+                        else {
+                            System.out.print("profit:" + profit[x][y][z]);
+                            System.out.print(" buyday:" + buyDay[x][y][z]);
+                            System.out.print(" sellday:" + sellDay[x][y][z] + ",\t");
+                        }
+                    }
+                }
+                System.out.println();
+            }
+        }
+        
+        return maxProfit;
     }
 }

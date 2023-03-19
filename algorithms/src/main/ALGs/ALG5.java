@@ -8,6 +8,6 @@ public class ALG5 {
 
 
         
-        System.out.print("|| Algorithm 5: ");   return maxProfit;
+        return maxProfit;
     }
 }

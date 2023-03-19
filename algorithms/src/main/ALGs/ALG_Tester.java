@@ -45,19 +45,38 @@ public class ALG_Tester {
             { 57,100,60,142,179,68,30,11,69,34 } // = 122
         }; // answer is 179 (row 2: 193 - 14)
 
-        int[][] copy = stockList1;
+        //problem 2 tests
+        int[][] stockList6 = {
+            { 68,5,1,150 }, // = 149 (150 - 1), 82 ()
+            { 105,55,101,47 }, // = 46 (101 - 55)
+            { 1,42,6,137 }, // = 136, 41
+            { 95,99,141,50 } // = 46, 4
+        }; // answer is 190 (149 + 41)
+
+        int[][] stockList7 = {
+            { 1,150,1,80 }, // = 149 (150 - 1), 79 (80-1)
+            
+        }; // answer is 228 (149 + 79)
+
+        int[][] stockList8 = {
+            { 1,150,1,80 }, // = 149 (150 - 1), 79 (80-1)
+            { 90, 4, 1, 200 } // = 199 (200 - 1)
+        }; // answer is 348 (149 + 199)
+
+        int[][] copy = stockList5;
         int k = 2;
 
         // For quick sending of the same matrix, send copy and change the instance of copy's matrix
         // Otherwise, you can send individual matrixes to certain algorithms.
         System.out.println("============================");
         // part4.part4();
-        System.out.println(ALG1.run_ALG1(copy));
-        System.out.println(ALG2.run_ALG2(copy));
-        System.out.println(ALG3.run_ALG3(copy));
-        System.out.println(ALG4.run_ALG4(copy, k));
-        System.out.println(ALG5.run_ALG5(copy, k));
-        System.out.println(ALG6.run_ALG6(copy, k));
+
+        System.out.println("|| Algorithm 1: " + ALG1.run_ALG1(copy));
+        System.out.println("|| Algorithm 2: " + ALG2.run_ALG2(copy));
+        System.out.println("|| Algorithm 3: " + ALG3.run_ALG3(copy));
+        System.out.println("|| Algorithm 4: " + ALG4.run_ALG4(copy, k));
+        System.out.println("|| Algorithm 5: " + ALG5.run_ALG5(copy, k));
+        System.out.println("|| Algorithm 6: " + ALG6.run_ALG6(copy, k));
         System.out.println("============================");
     }
 }
