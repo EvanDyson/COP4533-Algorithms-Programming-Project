@@ -45,17 +45,18 @@ public class ALG_Tester {
             { 57,100,60,142,179,68,30,11,69,34 } // = 122
         }; // answer is 179 (row 2: 193 - 14)
 
-        //problem 2 tests
+
+        //problem 2 tests ==================================================
         int[][] stockList6 = {
-            { 68,5,1,150 }, // = 149 (150 - 1), 82 ()
-            { 105,55,101,47 }, // = 46 (101 - 55)
+            { 68,5,1,150 }, // = 149 (150 - 1), 82 (), 5
+            { 105,56,101,47 }, // = 45 (101 - 56)
             { 1,42,6,137 }, // = 136, 41
-            { 95,99,141,50 } // = 46, 4
-        }; // answer is 190 (149 + 41)
+            { 95,99,141,50 } // = 46 (141-95)
+        }; // answer is 195 for k = 2 (149 + 46)
+            // answer is 235 for k = 3 (149(2-3) + 41(0-1) + 45(1-2))
 
         int[][] stockList7 = {
-            { 1,150,1,80 }, // = 149 (150 - 1), 79 (80-1)
-            
+            { 1,150,1,80 } // = 149 (150 - 1), 79 (80-1)
         }; // answer is 228 (149 + 79)
 
         int[][] stockList8 = {
@@ -63,8 +64,32 @@ public class ALG_Tester {
             { 90, 4, 1, 200 } // = 199 (200 - 1)
         }; // answer is 348 (149 + 199)
 
-        int[][] copy = stockList5;
+        int[][] stockList9 = {
+            { 1, 150, 200, 300 }, // = 299
+            { 1, 251, 1, 201 } // = 250 + 200 = 450
+        }; // answer is 348 (149 + 199)
+
+        int[][] copy = stockList6;
         int k = 2;
+        int answer = 195;
+
+
+        /* 
+        // test printing out the matrix
+        {
+            System.out.println();
+            System.out.println("test printing out the matrix");
+            for (int i = 0; i < copy.length; i++) {
+                for (int j = 0; j < copy[i].length; j++) {
+                    if (j == copy[i].length - 1)
+                        System.out.println(copy[i][j]);
+                    else
+                        System.out.print(copy[i][j] + ",  ");
+                }
+            }
+        }
+        */
+
 
         // For quick sending of the same matrix, send copy and change the instance of copy's matrix
         // Otherwise, you can send individual matrixes to certain algorithms.
@@ -74,9 +99,11 @@ public class ALG_Tester {
         System.out.println("|| Algorithm 1: " + ALG1.run_ALG1(copy));
         System.out.println("|| Algorithm 2: " + ALG2.run_ALG2(copy));
         System.out.println("|| Algorithm 3: " + ALG3.run_ALG3(copy));
-        System.out.println("|| Algorithm 4: " + ALG4.run_ALG4(copy, k));
+        System.out.println("|| Algorithm 4: " + ALG4.run_ALG4(copy, k));        
         System.out.println("|| Algorithm 5: " + ALG5.run_ALG5(copy, k));
         System.out.println("|| Algorithm 6: " + ALG6.run_ALG6(copy, k));
+
+        //System.out.println("answer should be " + answer);
         System.out.println("============================");
     }
 }
