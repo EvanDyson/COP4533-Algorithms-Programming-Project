@@ -77,10 +77,10 @@ public class ALG_Tester {
            // k = 3 answer is 160
 
         int[][] copy = stockList10;
-        int k = 2;
-        int answer = 146;
+        int k = 3;
+        int answer = 160;
 
-        /* 
+        
         // test printing out the matrix
         {
             System.out.println();
@@ -94,7 +94,7 @@ public class ALG_Tester {
                 }
             }
         }
-        */
+        
 
         // For quick sending of the same matrix, send copy and change the instance of copy's matrix
         // Otherwise, you can send individual matrixes to certain algorithms.
