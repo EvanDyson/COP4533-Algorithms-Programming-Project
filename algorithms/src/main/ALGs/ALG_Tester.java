@@ -104,7 +104,8 @@ public class ALG_Tester {
         //System.out.println("|| Algorithm 1: " + ALG1.run_ALG1(copy));
         //System.out.println("|| Algorithm 2: " + ALG2.run_ALG2(copy));
         //System.out.println("|| Algorithm 3: " + ALG3.run_ALG3(copy));
-        System.out.println("|| Algorithm 4: " + ALG4.run_ALG4(copy, k));
+        System.out.println("|| Algorithm 4: " + ALG4.run_ALG4(copy, k)); 
+        System.out.println("|| Algorithm 4 V2: " + ALG4.run_ALG4V2(copy, k));        
         //System.out.println("|| Algorithm 5: " + ALG5.run_ALG5(copy, k));
         //System.out.println("|| Algorithm 6: " + ALG6.run_ALG6(copy, k));
 
