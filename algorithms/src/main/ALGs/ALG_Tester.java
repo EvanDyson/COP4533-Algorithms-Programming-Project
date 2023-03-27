@@ -76,13 +76,19 @@ public class ALG_Tester {
         }; // k = 2 answer is 146
            // k = 3 answer is 160
 
+        int[][] stockList11 = {
+            {10, 12, 15, 13, 11},
+            {8, 9, 10, 11, 12},
+            {11, 10, 12, 14, 13},
+            {15, 14, 13, 16, 18}
+        };
+
         int[][] copy = stockList10;
         int k = 3;
-        int answer = 160;
 
         
         // test printing out the matrix
-        {
+        /*{
             System.out.println();
             System.out.println("test printing out the matrix");
             for (int i = 0; i < copy.length; i++) {
@@ -90,26 +96,23 @@ public class ALG_Tester {
                     if (j == copy[i].length - 1)
                         System.out.println(copy[i][j]);
                     else
-                        System.out.print(copy[i][j] + ",  ");
+                        System.out.print(copy[i][j] + ",\t");
                 }
             }
-        }
+        }*/
         
 
         // For quick sending of the same matrix, send copy and change the instance of copy's matrix
         // Otherwise, you can send individual matrixes to certain algorithms.
         System.out.println("\n============================\n");
-        // part4.part4();
 
-        //System.out.println("|| Algorithm 1: " + ALG1.run_ALG1(copy));
-        //System.out.println("|| Algorithm 2: " + ALG2.run_ALG2(copy));
-        //System.out.println("|| Algorithm 3: " + ALG3.run_ALG3(copy));
+        System.out.println("|| Algorithm 1: " + ALG1.run_ALG1(copy));
+        System.out.println("|| Algorithm 2: " + ALG2.run_ALG2(copy));
+        System.out.println("|| Algorithm 3: " + ALG3.run_ALG3(copy));
         System.out.println("|| Algorithm 4: " + ALG4.run_ALG4(copy, k)); 
-        System.out.println("|| Algorithm 4 V2: " + ALG4.run_ALG4V2(copy, k));        
-        //System.out.println("|| Algorithm 5: " + ALG5.run_ALG5(copy, k));
-        //System.out.println("|| Algorithm 6: " + ALG6.run_ALG6(copy, k));
+        System.out.println("|| Algorithm 5: " + ALG5.run_ALG5(copy, k));
+        System.out.println("|| Algorithm 6: " + ALG6.run_ALG6(copy, k));
 
-        System.out.println("|| Answer is  : " + answer);
         System.out.println("\n============================\n");
     }
 }
