@@ -350,32 +350,33 @@ public class ALG4 {
         int total = 0;
         int altTotal = 0;
         String altTotalString;
-        String[] altTotalParts;
+        String[] altTotalParts = new String[k + 1];
+        String[] maxAltTotal = new String[k];
         for (int x = 0; x < k; x++) {
             altTotalString = altTask4(copy, k, buyDay[x], sellDay[x], stock[x]);
             altTotalParts = altTotalString.split("\\n");
-            //for (int zx = 0; zx < altTotalParts.length; zx++)
-            //System.out.println(altTotalParts[zx]);
-            altTotal = Math.max(altTotal, Integer.valueOf(altTotalParts[0]));
-            //tempTotal = Math.max(tempTotal, altTask4(copy, k, buyDay[x], sellDay[x], stock[x]));
+            if (Integer.valueOf(altTotalParts[0]) > altTotal) {
+                for (int w = 0; w < k + 1; w++)
+                    maxAltTotal[w] = altTotalParts[w];
+            }
             if (profit[x] == -1)
                 profit[x] = 0;
             total += profit[x];
         }
-        //total = Math.max(total, tempTotal);
-        if (altTotal > total) {
-
+        if (Integer.valueOf(maxAltTotal[0]) > Integer.valueOf(altTotalParts[0])) {
+            for (int i = 1; i < k; i++) {
+                System.out.println(maxAltTotal[i]);
+            }
         }
-        /*
-        need to add print for when altMaxProfit has the maxprofit
-        for (int y = 0; y < k; y++)
-            String lineOne = scanner.nextLine();
-            String[] lineOneParts = lineOne.split("\\s+");
-         */
-
-        
-        for (int z = 0; z < k; z++) {
-            System.out.println((stock[z] + 1) + " " + (buyDay[z] + 1) + " " + (sellDay[z] + 1));
+        else if (altTotal > total) {
+            for (int i = 1; i < k; i++) {
+                System.out.println(altTotalParts[i]);
+            }
+        }
+        else {
+            for (int z = 0; z < k; z++) {
+                System.out.println((stock[z] + 1) + " " + (buyDay[z] + 1) + " " + (sellDay[z] + 1));
+            }
         }
     }
 
@@ -499,6 +500,7 @@ public class ALG4 {
             for (int x = 0; x < k; x++) {
                 if (profit[x] == -1)
                     profit[x] = 0;
+                    // need to fix this if statement... order is not being saved properly
                 if (buyDay[x] < lowDay && lowDay > prevDay && prevDay != buyDay[x]) {
                     lowDay = buyDay[x];
                     index = x;
