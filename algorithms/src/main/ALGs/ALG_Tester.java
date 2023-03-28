@@ -71,7 +71,7 @@ public class ALG_Tester {
         int[][] stockList10 = {
                 { 92, 85, 5, 75, 3 }, // = 70 (75 - 5)
                 { 67, 7, 12, 100, 89 }, // 93 (100 - 7)
-                { 14, 8, 55, 7, 60 }, // 53 (60 - 7)
+                { 14, 8, 55, 7, 60 }, // 53 (60 - 7)    53-8=47
                 { 59, 73, 77, 63, 34 } // 14 = (73 - 59)
         }; // k = 2 answer is 146
            // k = 3 answer is 160
@@ -83,7 +83,7 @@ public class ALG_Tester {
             {15, 14, 13, 16, 18}
         };
 
-        int[][] copy = stockList10;
+        int[][] copy = stockList6;
         int k = 3;
 
         
@@ -106,12 +106,16 @@ public class ALG_Tester {
         // Otherwise, you can send individual matrixes to certain algorithms.
         System.out.println("\n============================\n");
 
-        System.out.println("|| Algorithm 1: " + ALG1.run_ALG1(copy));
-        System.out.println("|| Algorithm 2: " + ALG2.run_ALG2(copy));
-        System.out.println("|| Algorithm 3: " + ALG3.run_ALG3(copy));
-        System.out.println("|| Algorithm 4: " + ALG4.run_ALG4(copy, k)); 
-        System.out.println("|| Algorithm 5: " + ALG5.run_ALG5(copy, k));
-        System.out.println("|| Algorithm 6: " + ALG6.run_ALG6(copy, k));
+        //System.out.println("|| Algorithm 1: " + ALG1.run_ALG1(copy));
+        // ALG1.task1();
+        //System.out.println("|| Algorithm 2: " + ALG2.run_ALG2(copy));
+        // ALG2.task2();
+        //System.out.println("|| Algorithm 3: " + ALG3.run_ALG3(copy));
+        System.out.println("|| Algorithm 4: " + ALG4.run_ALG4(copy, k));
+        ALG4.task4();
+        System.out.println(ALG4.altTask4(copy, k, 0, 0, 0));
+        //System.out.println("|| Algorithm 5: " + ALG5.run_ALG5(copy, k));
+        //System.out.println("|| Algorithm 6: " + ALG6.run_ALG6(copy, k));
 
         System.out.println("\n============================\n");
     }
