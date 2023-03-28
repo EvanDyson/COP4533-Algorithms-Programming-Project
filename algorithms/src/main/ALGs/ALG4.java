@@ -348,15 +348,24 @@ public class ALG4 {
             stock[t] = tempStock;
         }
         int total = 0;
-        int tempTotal = 0;
+        int altTotal = 0;
+        String altTotalString;
+        String[] altTotalParts;
         for (int x = 0; x < k; x++) {
+            altTotalString = altTask4(copy, k, buyDay[x], sellDay[x], stock[x]);
+            altTotalParts = altTotalString.split("\\n");
+            //for (int zx = 0; zx < altTotalParts.length; zx++)
+            //System.out.println(altTotalParts[zx]);
+            altTotal = Math.max(altTotal, Integer.valueOf(altTotalParts[0]));
             //tempTotal = Math.max(tempTotal, altTask4(copy, k, buyDay[x], sellDay[x], stock[x]));
             if (profit[x] == -1)
                 profit[x] = 0;
             total += profit[x];
         }
-        total = Math.max(total, tempTotal);
+        //total = Math.max(total, tempTotal);
+        if (altTotal > total) {
 
+        }
         /*
         need to add print for when altMaxProfit has the maxprofit
         for (int y = 0; y < k; y++)
@@ -364,9 +373,9 @@ public class ALG4 {
             String[] lineOneParts = lineOne.split("\\s+");
          */
 
-
+        
         for (int z = 0; z < k; z++) {
-            System.out.println((stock[z]+1) + " " + (buyDay[z]+1) + " " + (sellDay[z]+1));
+            System.out.println((stock[z] + 1) + " " + (buyDay[z] + 1) + " " + (sellDay[z] + 1));
         }
     }
 
@@ -396,25 +405,27 @@ public class ALG4 {
                         if (copy[m][n] <= minPrice) {
                             minPrice = copy[m][n];
                             buyDay_ = n;
-                        }
-                        else {
-                            int currentTransaction = copy[m][n] - minPrice;
-                            if (currentTransaction > tempProfit) {
-                                tempProfit = currentTransaction;
-                                tempBuyDay = buyDay_;
-                                tempSellDay = n;
-                                tempStock = m;
+                        } else {
+                            if (buyDay_ == Xbuy && n == Xsell && m == Xstock)
+                                break;
+                            else {
+                                int currentTransaction = copy[m][n] - minPrice;
+                                if (currentTransaction > tempProfit) {
+                                    tempProfit = currentTransaction;
+                                    tempBuyDay = buyDay_;
+                                    tempSellDay = n;
+                                    tempStock = m;
+                                }
                             }
                         }
-                    }
-                    else {
+                    } else {
                         // the first transaction has happened. 
                         // grab all following transactions compared to all previous transactions
                         for (int f = 1; f <= t; f++) {
                             // cycling through all previous transactions
+                            // check if current price is less than saved price
                             if (existingTrans == true)
                                 break;
-                            // check if current price is less than saved price
                             else if (copy[m][n] <= minPrice) {
                                 // check that the buy date isnt between other transcation dates.
                                 if (n >= buyDay[f - 1] && n < sellDay[f - 1]) {
@@ -422,13 +433,19 @@ public class ALG4 {
                                     minPrice = prevMinPrice;
                                     buyDay_ = prevBuyDay;
                                     break;
-                                } 
-                                else {
+                                } else {
                                     prevMinPrice = minPrice;
                                     prevBuyDay = buyDay_;
                                     minPrice = copy[m][n];
                                     buyDay_ = n;
                                 }
+                            }
+                            // do a check to make sure the sent transaction is not saved into profits
+                            else if (buyDay_ == Xbuy && n == Xsell && m == Xstock) {
+                                existingTrans = true;
+                                minPrice = prevMinPrice;
+                                buyDay_ = prevBuyDay;
+                                break;
                             }
                             // if price is not smaller then try to sell it
                             // if the current sell day is between a previous transaction sell date break out
@@ -460,9 +477,8 @@ public class ALG4 {
                         }
                     }
                     existingTrans = false;
-                }                
+                }
             }
-        
             profit[t] = tempProfit;
             buyDay[t] = tempBuyDay;
             sellDay[t] = tempSellDay;
@@ -483,14 +499,14 @@ public class ALG4 {
             for (int x = 0; x < k; x++) {
                 if (profit[x] == -1)
                     profit[x] = 0;
-                if (buyDay[x] < lowDay && lowDay > prevDay) {
+                if (buyDay[x] < lowDay && lowDay > prevDay && prevDay != buyDay[x]) {
                     lowDay = buyDay[x];
                     index = x;
-                    total += profit[x];
                 }
             }
             prevDay = lowDay;
             savedProfit[xy] = profit[index];
+            total += profit[index];
             savedBuy[xy] = buyDay[index];
             savedSell[xy] = sellDay[index];
             savedStock[xy] = stock[index];

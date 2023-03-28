@@ -47,12 +47,21 @@ public class ALG_Tester {
 
         //problem 2 tests ==================================================
         int[][] stockList6 = {
-                { 68, 5, 1, 150 }, // = 149 (150 - 1), 82 (), 5
-                { 105, 56, 101, 47 }, // = 45 (101 - 56)
-                { 1, 42, 6, 137 }, // = 136, 41
-                { 95, 99, 141, 50 } // = 46 (141-95)
+               //day 1    2   3    4
+       /*stock 1*/   { 68,  5,  1,   150 }, // = 149 (150 - 1), 82 (), 5
+             /*2*/   { 105, 56, 101, 47 }, // = 45 (101 - 56)
+             /*3*/   { 1,   42, 6,   137 }, // = 136, 41
+             /*4*/   { 95,  99, 141, 50 } // = 46 (141-95)
         }; // answer is 195 for k = 2 (149 + 46)
            // answer is 235 for k = 3 (149(2-3) + 41(0-1) + 45(1-2))
+           /*
+           first stock 3 buy 1 sell 2
+           second stock 2 buy 2 sell 3
+           third stock 1 buy 3 sell 4 
+           3 1 2
+           2 2 3
+           1 3 4
+            */
 
         int[][] stockList7 = {
                 { 1, 150, 1, 80 } // = 149 (150 - 1), 79 (80-1)
@@ -85,7 +94,7 @@ public class ALG_Tester {
 
         int[][] copy = stockList6;
         int k = 3;
-
+        System.out.println("Answer should be: \n3 1 2\n2 2 3\n1 3 4");
         
         // test printing out the matrix
         /*{
@@ -111,10 +120,13 @@ public class ALG_Tester {
         //System.out.println("|| Algorithm 2: " + ALG2.run_ALG2(copy));
         // ALG2.task2();
         //System.out.println("|| Algorithm 3: " + ALG3.run_ALG3(copy));
-        System.out.println("|| Algorithm 4: " + ALG4.run_ALG4(copy, k));
-        ALG4.task4();
-        System.out.println(ALG4.altTask4(copy, k, 0, 0, 0));
+
+        //System.out.println("|| Algorithm 4: " + ALG4.run_ALG4(copy, k));
+        //ALG4.task4();
+        System.out.println(ALG4.altTask4(copy, k, 0, 2, 3));
+
         //System.out.println("|| Algorithm 5: " + ALG5.run_ALG5(copy, k));
+
         //System.out.println("|| Algorithm 6: " + ALG6.run_ALG6(copy, k));
 
         System.out.println("\n============================\n");
