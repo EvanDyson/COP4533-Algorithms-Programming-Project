@@ -104,7 +104,7 @@ public class ALG4 {
         }
         int total = 0;
         int tempTotal = 0;
-        System.out.println();
+        //System.out.println();
         for (int x = 0; x < k; x++) {
             tempTotal = Math.max(tempTotal, altMaxProfit(copy, k, buyDay[x], sellDay[x], stock[x]));
             if (profit[x] == -1)
@@ -351,32 +351,53 @@ public class ALG4 {
         int altTotal = 0;
         String altTotalString;
         String[] altTotalParts = new String[k + 1];
-        String[] maxAltTotal = new String[k];
+        String[] maxAltTotal = new String[k + 1];
         for (int x = 0; x < k; x++) {
             altTotalString = altTask4(copy, k, buyDay[x], sellDay[x], stock[x]);
             altTotalParts = altTotalString.split("\\n");
             if (Integer.valueOf(altTotalParts[0]) > altTotal) {
                 for (int w = 0; w < k + 1; w++)
                     maxAltTotal[w] = altTotalParts[w];
+                altTotal = Integer.valueOf(maxAltTotal[0]);
             }
             if (profit[x] == -1)
                 profit[x] = 0;
             total += profit[x];
         }
-        if (Integer.valueOf(maxAltTotal[0]) > Integer.valueOf(altTotalParts[0])) {
-            for (int i = 1; i < k; i++) {
+        if (Integer.valueOf(maxAltTotal[0]) > total) {
+            for (int i = 1; i < k+1; i++) {
                 System.out.println(maxAltTotal[i]);
             }
         }
-        else if (altTotal > total) {
-            for (int i = 1; i < k; i++) {
-                System.out.println(altTotalParts[i]);
-            }
-        }
         else {
-            for (int z = 0; z < k; z++) {
-                System.out.println((stock[z] + 1) + " " + (buyDay[z] + 1) + " " + (sellDay[z] + 1));
+            int index = -1;
+            int[] savedBuy = new int[k];
+            int[] savedSell = new int[k];
+            int[] savedStock = new int[k];
+
+            for (int xy = 0; xy < k; xy++) {
+                int lowDay = Integer.MAX_VALUE;
+
+                for (int x = 0; x < k; x++) {
+                    if (profit[x] == -1)
+                        profit[x] = 0;
+                    if (buyDay[x] < lowDay && buyDay[x] != -1) {
+                        lowDay = buyDay[x];
+                        index = x;
+                    }
+                }
+                savedBuy[xy] = buyDay[index];
+                savedSell[xy] = sellDay[index];
+                savedStock[xy] = stock[index];
+                buyDay[index] = -1;
             }
+
+            String profitString = "";
+            for (int z = 0; z < k; z++) {
+                profitString += (Integer.toString(savedStock[z] + 1) + " " + Integer.toString(savedBuy[z] + 1) + " " + Integer.toString(savedSell[z] + 1) + "\n");
+            }
+
+            System.out.println(profitString);
         }
     }
 
@@ -489,7 +510,6 @@ public class ALG4 {
         int index = -1;
         int prevDay = -1;
         int total = 0;
-        int[] savedProfit = new int[k];
         int[] savedBuy = new int[k];
         int[] savedSell = new int[k];
         int[] savedStock = new int[k];
@@ -500,18 +520,22 @@ public class ALG4 {
             for (int x = 0; x < k; x++) {
                 if (profit[x] == -1)
                     profit[x] = 0;
-                    // need to fix this if statement... order is not being saved properly
-                if (buyDay[x] < lowDay && lowDay > prevDay && prevDay != buyDay[x]) {
+                // need to fix this if statement... order is not being saved properly
+                if (buyDay[x] < lowDay /*&& lowDay > prevDay && prevDay != buyDay[x]*/ && buyDay[x] != -1) {
                     lowDay = buyDay[x];
                     index = x;
+                    //buyDay[x] = -1;
                 }
             }
-            prevDay = lowDay;
-            savedProfit[xy] = profit[index];
-            total += profit[index];
-            savedBuy[xy] = buyDay[index];
-            savedSell[xy] = sellDay[index];
-            savedStock[xy] = stock[index];
+            if (profit[index] != 0) {
+                prevDay = lowDay;
+                total += profit[index];
+                savedBuy[xy] = buyDay[index];
+                savedSell[xy] = sellDay[index];
+                savedStock[xy] = stock[index];
+                buyDay[index] = -1;
+                profit[index] = 0;
+            }
         }
 
         String profitString = Integer.toString(total) + "\n";
