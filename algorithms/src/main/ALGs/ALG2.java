@@ -4,6 +4,13 @@ package ALGs;
 
 import java.util.Scanner;
 
+/*
+ For the purpose of clearity and cleanliness I have made two functions.
+        The "run_ALG2" function is to show the time complexity of the algorithm. As well as cleanly showing off the code to easy readability.
+        The "task2" function is for the purpose of part 4 of the assignment, in order to use the proper input and give out the correct output I have made a seperate function
+            that will take in the correct input and then correctly display the buy day, sell day, and stock.
+ */
+
 public class ALG2 {
     public static int run_ALG2(int[][] copy) {      
         // initiate a maxprofit for return

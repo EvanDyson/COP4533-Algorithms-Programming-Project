@@ -3,7 +3,19 @@
 package ALGs;
 import java.util.*;
 
+/*
+ For the purpose of clearity and cleanliness I have made two pairs of functions.
+        The "run_ALG4" function is to show the time complexity of the algorithm. As well as showing off the code for easier readability.
+
+
+        The "task4" function is for the purpose of part 4 of the assignment, in order to use the proper input and give out the correct output I have made a seperate function
+            that will take in the correct input and then correctly display all of the buy days, sell days, and stocks.
+ */
+
 public class ALG4 {
+
+    // NEED TO ADD COMMENTS
+
     public static int run_ALG4(int[][] copy, int k) {
         int[] profit = new int[k];
         int[] buyDay = new int[k];

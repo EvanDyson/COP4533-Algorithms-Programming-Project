@@ -1,8 +1,14 @@
 // Evan
 
 package ALGs;
-
 import java.util.*;
+
+/*
+ For the purpose of clearity and cleanliness I have made two functions.
+        The "run_ALG1" function is to show the time complexity of the algorithm. As well as cleanly showing off the code to easy readability.
+        The "task1" function is for the purpose of part 4 of the assignment, in order to use the proper input and give out the correct output I have made a seperate function
+            that will take in the correct input and then correctly display the buy day, sell day, and stock.
+ */
 
 public class ALG1 {
     public static int run_ALG1(int[][] copy) {
@@ -18,9 +24,7 @@ public class ALG1 {
                     int profit = copy[m][i] - copy[m][n];
                     // compare profit to max profit and save the higher value
                     maxProfit = Math.max(maxProfit, profit);
-                }
-            }
-        }
+        }}}
         return maxProfit;
     }
     
@@ -50,10 +54,7 @@ public class ALG1 {
                         stock = i;
                         buyDay = n;
                         sellDay = i;
-                    }
-                }
-            }
-        }
+        }}}}
         System.out.println((stock+1) + " " + (buyDay+1) + " " + (sellDay+1));
     }
 }
