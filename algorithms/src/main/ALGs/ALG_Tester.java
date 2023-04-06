@@ -92,8 +92,15 @@ public class ALG_Tester {
             {15, 14, 13, 16, 18}
         };
 
-        int[][] copy = stockList6;
+        int [][] stockList12 = {
+            {5, 2, 6, 15}, // 2-6 = 4,  2-15 = 13,  6-15 = 9
+            {1, 4, 2, 8},  // 1-4 = 3,  2-8 = 6
+            {2, 5, 11, 12} // 2-5 = 3,  2-11 = 9,  5-11 = 6,  2-12 = 10
+        };
+
+        int[][] copy = stockList12;
         int k = 3;
+        int c = 1;
         
         // test printing out the matrix
         /*{
@@ -126,6 +133,12 @@ public class ALG_Tester {
         //System.out.println("|| Algorithm 5: " + ALG5.run_ALG5(copy, k));
 
         //System.out.println("|| Algorithm 6: " + ALG6.run_ALG6(copy, k));
+
+        System.out.println("|| Algorithm 7: " + ALG7.run_ALG7(copy, c));
+
+        //System.out.println("|| Algorithm 8: " + ALG8.run_ALG8(copy, k));
+
+        //System.out.println("|| Algorithm 9: " + ALG9.run_ALG9(copy, k));
 
         System.out.println("\n============================\n");
     }
