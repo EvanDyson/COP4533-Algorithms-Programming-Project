@@ -516,7 +516,6 @@ public class ALG4 {
         }
 
         int index = -1;
-        int prevDay = -1;
         int total = 0;
         int[] savedBuy = new int[k];
         int[] savedSell = new int[k];
@@ -536,7 +535,6 @@ public class ALG4 {
                 }
             }
             if (profit[index] != 0) {
-                prevDay = lowDay;
                 total += profit[index];
                 savedBuy[xy] = buyDay[index];
                 savedSell[xy] = sellDay[index];
