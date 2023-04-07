@@ -58,7 +58,7 @@ public class ALG4 {
                         // grab all following transactions compared to all previous transactions
                         for (int f = 1; f <= t; f++) {
                             // cycling through all previous transactions
-                            if (existingTrans == true)
+                            if (existingTrans)
                                 break;
                             // check if current price is less than saved price
                             else if (copy[m][n] <= minPrice) {
@@ -116,7 +116,6 @@ public class ALG4 {
         }
         int total = 0;
         int tempTotal = 0;
-        //System.out.println();
         for (int x = 0; x < k; x++) {
             tempTotal = Math.max(tempTotal, altMaxProfit(copy, k, buyDay[x], sellDay[x], stock[x]));
             if (profit[x] == -1)
@@ -173,7 +172,7 @@ public class ALG4 {
                         for (int f = 1; f <= t; f++) {
                             // cycling through all previous transactions
                             // check if current price is less than saved price
-                            if (existingTrans == true)
+                            if (existingTrans)
                                 break;
                             else if (copy[m][n] <= minPrice) {
                                 // check that the buy date isnt between other transcation dates.
@@ -236,13 +235,10 @@ public class ALG4 {
         int total = 0;
 
         for (int x = 0; x < k; x++) {
-            //System.out.println(profit[x]);
-            //System.out.println("sub-transaction #" + (x+1) + ": " + profit[x] + "\tBuy Day: " + buyDay[x] + "\tSell Day: " + sellDay[x] + "\tStock: " + stock[x]);
             if (profit[x] == -1)
                 profit[x] = 0;
             total += profit[x];
         }
-        //System.out.println();
         return total;
     }
     
@@ -303,7 +299,7 @@ public class ALG4 {
                         // grab all following transactions compared to all previous transactions
                         for (int f = 1; f <= t; f++) {
                             // cycling through all previous transactions
-                            if (existingTrans == true)
+                            if (existingTrans)
                                 break;
                             // check if current price is less than saved price
                             else if (copy[m][n] <= minPrice) {
@@ -458,7 +454,7 @@ public class ALG4 {
                         for (int f = 1; f <= t; f++) {
                             // cycling through all previous transactions
                             // check if current price is less than saved price
-                            if (existingTrans == true)
+                            if (existingTrans)
                                 break;
                             else if (copy[m][n] <= minPrice) {
                                 // check that the buy date isnt between other transcation dates.

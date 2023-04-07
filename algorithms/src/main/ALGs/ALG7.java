@@ -15,8 +15,8 @@ public class ALG7 {
 
         boolean existingTrans = false;
         int t = 0;
-        int stop_ = copy.length;
-        while (t < stop_) {
+        int stop = copy.length;
+        while (t < stop) {
             int tempProfit = -1;
             int tempBuyDay = -1;
             int tempSellDay = -1;
@@ -29,7 +29,7 @@ public class ALG7 {
                 int prevBuyDay = -1;
 
                 for (int n = 0; n < copy[m].length; n++) {
-                    if (profit.size() == 0) {
+                    if (profit.isEmpty()) {
                         // first transaction grab the highest transaction.
                         // loop thru until the highest is found then save it temporarily till the end of the loop of t
                         if (copy[m][n] <= minPrice) {
@@ -49,7 +49,7 @@ public class ALG7 {
                         // grab all following transactions compared to all previous transactions
                         for (int f = 1; f <= profit.size(); f++) {
                             // cycling through all previous transactions
-                            if (existingTrans == true)
+                            if (existingTrans)
                                 break;
                             // check if current price is less than saved price
                             else if (copy[m][n] <= minPrice) {
@@ -114,13 +114,12 @@ public class ALG7 {
         }
         int total = 0;
         int tempTotal = 0;
-        //System.out.println(profit.size());
         for (int x = 0; x < profit.size(); x++) {
             tempTotal = Math.max(tempTotal, altMaxProfit(copy, c, buyDay.get(x), sellDay.get(x), stock.get(x)));
             if (profit.get(x) == -1)
                 profit.set(x, 0);
             total += profit.get(x);
-            System.out.println("profit: " + profit.get(x) + "\tbuy day: " + buyDay.get(x) + "\t sell day: " + sellDay.get(x) + "\tstock: " + stock.get(x));
+            //System.out.println("profit: " + profit.get(x) + "\tbuy day: " + buyDay.get(x) + "\t sell day: " + sellDay.get(x) + "\tstock: " + stock.get(x));
         }
         total = Math.max(total, tempTotal);
         return total;
@@ -138,8 +137,8 @@ public class ALG7 {
         // need to reset up the loop to allow for infinite transactions now
         // when looping thru add C days to the sell date to account for the C days not allowed to make another transaction
         int t = 0;
-        int stop_ = copy.length;
-        while (t < stop_) {
+        int stop = copy.length;
+        while (t < stop) {
 
             int tempProfit = -1;
             int tempBuyDay = -1;
@@ -153,7 +152,7 @@ public class ALG7 {
                 int prevBuyDay = -1;
 
                 for (int n = 0; n < copy[m].length; n++) {
-                    if (profit.size() == 0) {
+                    if (profit.isEmpty()) {
                         // first transaction grab the highest transaction.
                         // loop thru until the highest is found then save it temporarily till the end of the loop of t
                         if (copy[m][n] <= minPrice) {
@@ -178,7 +177,7 @@ public class ALG7 {
                         for (int f = 1; f <= t; f++) {
                             // cycling through all previous transactions
                             // check if current price is less than saved price
-                            if (existingTrans == true)
+                            if (existingTrans)
                                 break;
                             else if (copy[m][n] <= minPrice) {
                                 // check that the buy date isnt between other transcation dates.
@@ -281,8 +280,8 @@ public class ALG7 {
         // need to reset up the loop to allow for infinite transactions now
         // when looping thru add C days to the sell date to account for the C days not allowed to make another transaction
         int t = 0;
-        int stop_ = copy.length;
-        while (t < stop_) {
+        int stop = copy.length;
+        while (t < stop) {
             int tempProfit = -1;
             int tempBuyDay = -1;
             int tempSellDay = -1;
@@ -295,7 +294,7 @@ public class ALG7 {
                 int prevBuyDay = -1;
 
                 for (int n = 0; n < copy[m].length; n++) {
-                    if (profit.size() == 0) {
+                    if (profit.isEmpty()) {
                         // first transaction grab the highest transaction.
                         // loop thru until the highest is found then save it temporarily till the end of the loop of t
                         if (copy[m][n] <= minPrice) {
@@ -315,7 +314,7 @@ public class ALG7 {
                         // grab all following transactions compared to all previous transactions
                         for (int f = 1; f <= profit.size(); f++) {
                             // cycling through all previous transactions
-                            if (existingTrans == true)
+                            if (existingTrans)
                                 break;
                             // check if current price is less than saved price
                             else if (copy[m][n] <= minPrice) {
@@ -380,13 +379,12 @@ public class ALG7 {
         }
         int total = 0;
         int tempTotal = 0;
-        //System.out.println(profit.size());
         for (int x = 0; x < profit.size(); x++) {
             tempTotal = Math.max(tempTotal, altTask7(copy, c, buyDay.get(x), sellDay.get(x), stock.get(x)));
             if (profit.get(x) == -1)
                 profit.set(x, 0);
             total += profit.get(x);
-            System.out.println("profit: " + profit.get(x) + "\tbuy day: " + buyDay.get(x) + "\t sell day: " + sellDay.get(x) + "\tstock: " + stock.get(x));
+            //System.out.println("profit: " + profit.get(x) + "\tbuy day: " + buyDay.get(x) + "\t sell day: " + sellDay.get(x) + "\tstock: " + stock.get(x));
         }
         total = Math.max(total, tempTotal);
         return total;
@@ -404,8 +402,8 @@ public class ALG7 {
         // need to reset up the loop to allow for infinite transactions now
         // when looping thru add C days to the sell date to account for the C days not allowed to make another transaction
         int t = 0;
-        int stop_ = copy.length;
-        while (t < stop_) {
+        int stop = copy.length;
+        while (t < stop) {
         
             int tempProfit = -1;
             int tempBuyDay = -1;
@@ -419,7 +417,7 @@ public class ALG7 {
                 int prevBuyDay = -1;
 
                 for (int n = 0; n < copy[m].length; n++) {
-                    if (profit.size() == 0) {
+                    if (profit.isEmpty()) {
                         // first transaction grab the highest transaction.
                         // loop thru until the highest is found then save it temporarily till the end of the loop of t
                         if (copy[m][n] <= minPrice) {
@@ -444,7 +442,7 @@ public class ALG7 {
                         for (int f = 1; f <= t; f++) {
                             // cycling through all previous transactions
                             // check if current price is less than saved price
-                            if (existingTrans == true)
+                            if (existingTrans)
                                 break;
                             else if (copy[m][n] <= minPrice) {
                                 // check that the buy date isnt between other transcation dates.
