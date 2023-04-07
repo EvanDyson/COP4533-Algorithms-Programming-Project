@@ -83,7 +83,7 @@ public class ALG_Tester {
                 { 14, 8, 55, 7, 60 }, // 53 (60 - 7)    53-8=47
                 { 59, 73, 77, 63, 34 } // 14 = (73 - 59)
         }; // k = 2 answer is 146
-           // k = 3 answer is 160
+           // k = 3 answer is 170
 
         int[][] stockList11 = {
             {10, 12, 15, 13, 11},
@@ -129,12 +129,12 @@ public class ALG_Tester {
 
         //System.out.println("|| Algorithm 4: " + ALG4.run_ALG4(copy, k));
         //ALG4.task4();
-
         //System.out.println("|| Algorithm 5: " + ALG5.run_ALG5(copy, k));
 
         //System.out.println("|| Algorithm 6: " + ALG6.run_ALG6(copy, k));
 
         //System.out.println("|| Algorithm 7: " + ALG7.run_ALG7(copy, c));
+        //ALG7.task7();
 
         //System.out.println("|| Algorithm 8: " + ALG8.run_ALG8(copy, k));
 
