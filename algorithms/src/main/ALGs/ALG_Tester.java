@@ -98,12 +98,12 @@ public class ALG_Tester {
             {2, 5, 11, 12} // 2-5 = 3,  2-11 = 9,  5-11 = 6,  2-12 = 10
         };
 
-        int[][] copy = stockList12;
+        int[][] copy = stockList10;
         int k = 3;
-        int c = 1;
+        int c = 2;
         
         // test printing out the matrix
-        /*{
+        {
             System.out.println();
             System.out.println("test printing out the matrix");
             for (int i = 0; i < copy.length; i++) {
@@ -114,7 +114,7 @@ public class ALG_Tester {
                         System.out.print(copy[i][j] + ",\t");
                 }
             }
-        }*/
+        }
         
 
         // For quick sending of the same matrix, send copy and change the instance of copy's matrix
@@ -134,7 +134,7 @@ public class ALG_Tester {
 
         //System.out.println("|| Algorithm 6: " + ALG6.run_ALG6(copy, k));
 
-        System.out.println("|| Algorithm 7: " + ALG7.run_ALG7(copy, c));
+        //System.out.println("|| Algorithm 7: " + ALG7.run_ALG7(copy, c));
 
         //System.out.println("|| Algorithm 8: " + ALG8.run_ALG8(copy, k));
 

@@ -260,8 +260,8 @@ public class ALG4 {
             }
         }
         scanner.close();
-        
         int k = Integer.valueOf(tempK);
+        
         int[] profit = new int[k];
         int[] buyDay = new int[k];
         int[] sellDay = new int[k];
