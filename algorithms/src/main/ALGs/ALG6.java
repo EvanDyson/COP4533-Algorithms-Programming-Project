@@ -4,10 +4,10 @@ package ALGs;
 import java.util.*;
 
 public class ALG6 {
-    public static int run_ALG6(int[][] copy, int k) {
+    public static int run_ALG6(int[][] A, int k) {
         int maxProfit = 0;
-        int m = copy.length;
-        int n = copy[0].length;
+        int m = A.length;
+        int n = A[0].length;
         int[][][] newMatrix = new int[m][n][k+1];
 
         // initialize memoization table with -1
@@ -29,7 +29,7 @@ public class ALG6 {
                     else {
                         maxProfit = newMatrix[i][j-1][s]; // do nothing
                         for(int d = 0; d < i; d++) { // buy and sell
-                            int profit = copy[i][j] - copy[d][j] + newMatrix[d][j-1][s-1];
+                            int profit = A[i][j] - A[d][j] + newMatrix[d][j-1][s-1];
                             maxProfit = Math.max(maxProfit, profit);
                         }
                         newMatrix[i][j][s] = maxProfit;

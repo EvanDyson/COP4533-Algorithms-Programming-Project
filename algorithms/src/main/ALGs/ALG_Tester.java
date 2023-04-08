@@ -133,12 +133,12 @@ public class ALG_Tester {
 
         //System.out.println("|| Algorithm 6: " + ALG6.run_ALG6(copy, k));
 
-        //System.out.println("|| Algorithm 7: " + ALG7.run_ALG7(copy, c));
+        System.out.println("|| Algorithm 7: " + ALG7.run_ALG7(copy, c));
         //ALG7.task7();
 
-        //System.out.println("|| Algorithm 8: " + ALG8.run_ALG8(copy, k));
+        System.out.println("|| Algorithm 8: " + ALG8.run_ALG8(copy, c));
 
-        //System.out.println("|| Algorithm 9: " + ALG9.run_ALG9(copy, k));
+        System.out.println("|| Algorithm 9: " + ALG9.run_ALG9(copy, c));
 
         System.out.println("\n============================\n");
     }
