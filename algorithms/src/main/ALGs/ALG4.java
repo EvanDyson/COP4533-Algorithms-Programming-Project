@@ -17,6 +17,8 @@ public class ALG4 {
     // NEED TO ADD COMMENTS
 
     public static int run_ALG4(int[][] copy, int k) {
+        final long startTime = System.nanoTime();
+
         int[] profit = new int[k];
         int[] buyDay = new int[k];
         int[] sellDay = new int[k];
@@ -123,6 +125,9 @@ public class ALG4 {
             total += profit[x];
         }
         total = Math.max(total, tempTotal);
+        final long endTime = System.nanoTime();
+        long elapsedTimeMillis = (endTime - startTime);
+        System.out.println("|| ALG 4 took " + elapsedTimeMillis + " nanoseconds\tusing m = " + copy.length + "\tn = " + copy[0].length + "\tk = " + k);
         return total;
     }
 

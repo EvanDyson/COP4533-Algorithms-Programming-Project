@@ -5,7 +5,8 @@ import java.util.*;
 
 public class ALG5 {
     public static int run_ALG5(int[][] A, int k) {
-        
+        final long startTime = System.nanoTime();
+
         int[][][] dp = new int[A.length][A[0].length][k + 1];
 
         for (int t = 1; t <= k; t++) {
@@ -31,6 +32,9 @@ public class ALG5 {
                 maxProfit = Math.max(maxProfit, dp[m][n][k]);
             }
         }
+        final long endTime = System.nanoTime();
+        long elapsedTimeMillis = (endTime - startTime);
+        System.out.println("|| ALG 5 took " + elapsedTimeMillis + " nanoseconds\tusing m = " + A.length + "\tn = " + A[0].length + "\tk = " + k);
         return maxProfit;
     } 
     

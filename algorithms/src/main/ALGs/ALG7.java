@@ -8,6 +8,8 @@ public class ALG7 {
 
     //NEED TO ADD COMMENTS
     public static int run_ALG7(int[][] copy, int c) {
+        final long startTime = System.nanoTime();
+
         ArrayList<Integer> profit = new ArrayList<Integer>();
         ArrayList<Integer> buyDay = new ArrayList<Integer>();
         ArrayList<Integer> sellDay = new ArrayList<Integer>();
@@ -122,6 +124,9 @@ public class ALG7 {
             //System.out.println("profit: " + profit.get(x) + "\tbuy day: " + buyDay.get(x) + "\t sell day: " + sellDay.get(x) + "\tstock: " + stock.get(x));
         }
         total = Math.max(total, tempTotal);
+        final long endTime = System.nanoTime();
+        long elapsedTimeMillis = (endTime - startTime);
+        System.out.println("|| ALG 7 took " + elapsedTimeMillis + " nanoseconds\tusing m = " + copy.length + "\tn = " + copy[0].length + "\tc = " + c);
         return total;
     }
 

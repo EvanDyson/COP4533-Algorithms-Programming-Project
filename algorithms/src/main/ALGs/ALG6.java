@@ -5,6 +5,8 @@ import java.util.*;
 
 public class ALG6 {
     public static int run_ALG6(int[][] A, int k) {
+        final long startTime = System.nanoTime();
+
         int maxProfit = 0;
         int m = A.length;
         int n = A[0].length;
@@ -44,6 +46,9 @@ public class ALG6 {
                 maxProfit = Math.max(maxProfit, newMatrix[i][n-1][s]);
             }
         }
+        final long endTime = System.nanoTime();
+        long elapsedTimeMillis = (endTime - startTime);
+        System.out.println("|| ALG 6 took " + elapsedTimeMillis + " nanoseconds\tusing m = " + A.length + "\tn = " + A[0].length + "\tk = " + k);
         return maxProfit;
     }
 

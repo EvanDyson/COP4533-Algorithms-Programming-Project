@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class ALG3 {
 
     public static int run_ALG3(int[][] A) {
+        final long startTime = System.nanoTime();
+
         // Find the number of rows and columns in the price matrix
         int m = A.length;
         int n = A[0].length;
@@ -36,6 +38,9 @@ public class ALG3 {
                 }
             }
         }
+        final long endTime = System.nanoTime();
+        long elapsedTimeMillis = (endTime - startTime);
+        System.out.println("|| ALG 3 took " + elapsedTimeMillis + " nanoseconds\tusing m = " + A.length + "\tn = " + A[0].length);
         // Return the maximum profit that can be made
         return maxProfit;
     }

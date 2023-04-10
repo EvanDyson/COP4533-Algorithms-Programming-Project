@@ -5,6 +5,8 @@ import java.util.*;
 
 public class ALG9 {
     public static int run_ALG9(int[][] A, int c) {
+        final long startTime = System.nanoTime();
+
         // Find the number of rows and columns in the price matrix
         int m = A.length;
         int n = A[0].length;
@@ -39,6 +41,9 @@ public class ALG9 {
             maxProfit = Math.max(maxProfit, newMatrix[i][n-1]);
         }
         // Return the maximum profit
+        final long endTime = System.nanoTime();
+        long elapsedTimeMillis = (endTime - startTime);
+        System.out.println("|| ALG 9 took " + elapsedTimeMillis + " nanoseconds\tusing m = " + A.length + "\tn = " + A[0].length + "\tc = " + c);
         return maxProfit;
     }
 

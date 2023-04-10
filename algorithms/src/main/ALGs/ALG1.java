@@ -12,6 +12,7 @@ import java.util.*;
 
 public class ALG1 {
     public static int run_ALG1(int[][] copy) {
+        final long startTime = System.nanoTime();
         // initiate a maxprofit for return
         int maxProfit = 0;
         // loop through all the stocks
@@ -25,6 +26,9 @@ public class ALG1 {
                     // compare profit to max profit and save the higher value
                     maxProfit = Math.max(maxProfit, profit);
         }}}
+        final long endTime = System.nanoTime();
+        long elapsedTimeMillis = (endTime - startTime);
+        System.out.println("|| ALG 1 took " + elapsedTimeMillis + " nanoseconds\tusing m = " + copy.length + "\tn = " + copy[0].length);
         return maxProfit;
     }
     

@@ -99,11 +99,12 @@ public class ALG_Tester {
         };
 
         int[][] copy = stockList10;
-        int k = 3;
+        int k = 2;
         int c = 2;
+        int answer = 146;
         
         // test printing out the matrix
-        {
+        /*{
             System.out.println();
             System.out.println("test printing out the matrix");
             for (int i = 0; i < copy.length; i++) {
@@ -114,32 +115,31 @@ public class ALG_Tester {
                         System.out.print(copy[i][j] + ",\t");
                 }
             }
-        }
+        }*/
         
 
         // For quick sending of the same matrix, send copy and change the instance of copy's matrix
         // Otherwise, you can send individual matrixes to certain algorithms.
-        System.out.println("\n============================\n");
-
-        //System.out.println("|| Algorithm 1: " + ALG1.run_ALG1(copy));
+        System.out.println("\n============================");
+        System.out.println("|| Algorithm 1: " + ALG1.run_ALG1(copy));
         // ALG1.task1();
-        //System.out.println("|| Algorithm 2: " + ALG2.run_ALG2(copy));
+        System.out.println("|| Algorithm 2: " + ALG2.run_ALG2(copy));
         // ALG2.task2();
-        //System.out.println("|| Algorithm 3: " + ALG3.run_ALG3(copy));
-
-        //System.out.println("|| Algorithm 4: " + ALG4.run_ALG4(copy, k));
-        //ALG4.task4();
-        //System.out.println("|| Algorithm 5: " + ALG5.run_ALG5(copy, k));
-
-        //System.out.println("|| Algorithm 6: " + ALG6.run_ALG6(copy, k));
-
+        System.out.println("|| Algorithm 3: " + ALG3.run_ALG3(copy));
+        // ALG3.task3();
+        System.out.println("|| Algorithm 4: " + ALG4.run_ALG4(copy, k));
+        // ALG4.task4();
+        System.out.println("|| Algorithm 5: " + ALG5.run_ALG5(copy, k));
+        // ALG5.task5();
+        System.out.println("|| Algorithm 6: " + ALG6.run_ALG6(copy, k));
+        // ALG6.task6();
         System.out.println("|| Algorithm 7: " + ALG7.run_ALG7(copy, c));
-        //ALG7.task7();
-
+        // ALG7.task7();
         System.out.println("|| Algorithm 8: " + ALG8.run_ALG8(copy, c));
-
+        // ALG7.task8();
         System.out.println("|| Algorithm 9: " + ALG9.run_ALG9(copy, c));
-
-        System.out.println("\n============================\n");
+        // ALG7.task9();
+        System.out.println("|| Answer is " + answer);
+        System.out.println("============================\n");
     }
 }

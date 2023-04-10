@@ -13,6 +13,8 @@ import java.util.Scanner;
 
 public class ALG2 {
     public static int run_ALG2(int[][] copy) {      
+        final long startTime = System.nanoTime();
+
         // initiate a maxprofit for return
         int maxProfit = 0;
 
@@ -41,7 +43,9 @@ public class ALG2 {
             if (maxProfitPerStock > maxProfit)
                 maxProfit = maxProfitPerStock;
         }
-        
+        final long endTime = System.nanoTime();
+        long elapsedTimeMillis = (endTime - startTime);
+        System.out.println("|| ALG 2 took " + elapsedTimeMillis + " nanoseconds\tusing m = " + copy.length + "\tn = " + copy[0].length);
         return maxProfit;
     }
     
