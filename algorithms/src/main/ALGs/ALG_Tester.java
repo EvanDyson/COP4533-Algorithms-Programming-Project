@@ -103,6 +103,30 @@ public class ALG_Tester {
         int c = 2;
         int answer = 146;
         
+        // Creating matrixes for timing ===============
+        // 1 - 3
+        //      need variable n and fixed m
+        //      need variable m and fixed n
+
+        // 4 - 6
+        //      need variable n and fixed m and k
+        //      need variable m and fixed n and k
+        //      need variable k and fixed m and n
+
+        // 7 - 9
+        //      need variable n and fixed m and c
+        //      need variable m and fixed n and c
+
+        // 8 and 9
+        //      need variable n and fixed m and c
+        //      need variable m and fixed n and c
+
+
+
+
+
+
+        // ===========================================
         // test printing out the matrix
         /*{
             System.out.println();
@@ -117,7 +141,6 @@ public class ALG_Tester {
             }
         }*/
         
-
         // For quick sending of the same matrix, send copy and change the instance of copy's matrix
         // Otherwise, you can send individual matrixes to certain algorithms.
         System.out.println("\n============================");
