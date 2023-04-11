@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+java ALGs.Stocks $1
