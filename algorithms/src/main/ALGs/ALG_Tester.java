@@ -149,7 +149,7 @@ public class ALG_Tester {
         // ALG2.task2();
         //System.out.println("|| Algorithm 3A: " + ALG3.run_ALG3A(testing.timeAlg()));
         //System.out.println("|| Algorithm 3B: " + ALG3.run_ALG3B(testing.timeAlg()));
-        ALG3.run_ALG3B(testing.timeAlg());
+        //ALG3.run_ALG3B(testing.timeAlg());
         // ALG3.task3();
         //System.out.println("|| Algorithm 4: " + ALG4.run_ALG4(testing.timeAlg(), k));
         // ALG4.task4();
