@@ -100,7 +100,7 @@ public class ALG_Tester {
 
         int[][] copy = stockList10;
         int k = 2;
-        int c = 2;
+        int c = 3;
         int answer = 146;
         
         // Creating matrixes for timing ===============
