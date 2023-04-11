@@ -7,3 +7,6 @@
 * ALG 4 done by Evan
 * ALG 5 done by Maryam
 * ALG 6 done by Maryam
+* ALG 7 done by Evan
+* Alg 8 done by Maryam
+* Alg 9 done by Maryam
