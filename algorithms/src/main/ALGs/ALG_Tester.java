@@ -97,15 +97,11 @@ public class ALG_Tester {
             {1, 4, 2, 8},  // 1-4 = 3,  2-8 = 6
             {2, 5, 11, 12} // 2-5 = 3,  2-11 = 9,  5-11 = 6,  2-12 = 10
         };
-
-        int[][] copy = stockList10;
-        int k = 2;
-        int c = 3;
-        int answer = 146;
         
         // Creating matrixes for timing ===============
         // 1 - 3
         //      need variable n and fixed m
+
         //      need variable m and fixed n
 
         // 4 - 6
@@ -122,7 +118,9 @@ public class ALG_Tester {
         //      need variable m and fixed n and c
 
 
-
+        int[][] copy = stockList10;
+        int k = 10;
+        int c = 3;
 
 
 
@@ -144,25 +142,28 @@ public class ALG_Tester {
         // For quick sending of the same matrix, send copy and change the instance of copy's matrix
         // Otherwise, you can send individual matrixes to certain algorithms.
         System.out.println("\n============================");
-        System.out.println("|| Algorithm 1: " + ALG1.run_ALG1(copy));
+        //testing.timeAlg();
+        //System.out.println("|| Algorithm 1: " + ALG1.run_ALG1(testing.timeAlg()));
         // ALG1.task1();
-        System.out.println("|| Algorithm 2: " + ALG2.run_ALG2(copy));
+        //System.out.println("|| Algorithm 2: " + ALG2.run_ALG2(testing.timeAlg()));
         // ALG2.task2();
-        System.out.println("|| Algorithm 3: " + ALG3.run_ALG3(copy));
+        //System.out.println("|| Algorithm 3A: " + ALG3.run_ALG3A(testing.timeAlg()));
+        //System.out.println("|| Algorithm 3B: " + ALG3.run_ALG3B(testing.timeAlg()));
+        ALG3.run_ALG3B(testing.timeAlg());
         // ALG3.task3();
-        System.out.println("|| Algorithm 4: " + ALG4.run_ALG4(copy, k));
+        //System.out.println("|| Algorithm 4: " + ALG4.run_ALG4(testing.timeAlg(), k));
         // ALG4.task4();
-        System.out.println("|| Algorithm 5: " + ALG5.run_ALG5(copy, k));
+        //System.out.println("|| Algorithm 5: " + ALG5.run_ALG5(testing.timeAlg(), k));
         // ALG5.task5();
-        System.out.println("|| Algorithm 6: " + ALG6.run_ALG6(copy, k));
+        //System.out.println("|| Algorithm 6: " + ALG6.run_ALG6(testing.timeAlg(), k));
         // ALG6.task6();
-        System.out.println("|| Algorithm 7: " + ALG7.run_ALG7(copy, c));
+        //System.out.println("|| Algorithm 7: " + ALG7.run_ALG7(testing.timeAlg(), c));
         // ALG7.task7();
-        System.out.println("|| Algorithm 8: " + ALG8.run_ALG8(copy, c));
+        //System.out.println("|| Algorithm 8: " + ALG8.run_ALG8(testing.timeAlg(), c));
         // ALG7.task8();
-        System.out.println("|| Algorithm 9: " + ALG9.run_ALG9(copy, c));
+        //System.out.println("|| Algorithm 9: " + ALG9.run_ALG9(testing.timeAlg(), c));
         // ALG7.task9();
-        System.out.println("|| Answer is " + answer);
+        //System.out.println("|| Answer is " + answer);
         System.out.println("============================\n");
     }
 }

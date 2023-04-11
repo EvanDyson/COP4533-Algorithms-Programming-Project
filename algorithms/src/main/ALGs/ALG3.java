@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class ALG3 {
 
-    public static int run_ALG3(int[][] A) {
+    public static int run_ALG3A(int[][] A) {
         final long startTime = System.nanoTime();
 
         // Find the number of rows and columns in the price matrix
@@ -40,11 +40,52 @@ public class ALG3 {
         }
         final long endTime = System.nanoTime();
         long elapsedTimeMillis = (endTime - startTime);
-        System.out.println("|| ALG 3 took " + elapsedTimeMillis + " nanoseconds\tusing m = " + A.length + "\tn = " + A[0].length);
+        System.out.println("|| ALG 3A took " + elapsedTimeMillis + " nanoseconds\tusing m = " + A.length + "\tn = " + A[0].length);
         // Return the maximum profit that can be made
         return maxProfit;
     }
-    
+    public static void run_ALG3B(int[][] A) {
+        final long startTime = System.nanoTime();
+
+        int m = A.length;
+        int n = A[0].length;
+
+        // Initialize variables
+        int[][] newMatrix = new int[m][n];
+        int maxProfit = 0;
+        int buyDay = 0;
+        int sellDay = 0;    
+
+        // Loop through each row and column of the input array
+        for(int i = 0; i < m; i++) {
+            for(int j = 0; j < n; j++) {
+                // If we are in the first column, just copy the value from the input array
+                if(j == 0) {
+                    newMatrix[i][j] = A[i][j];
+                }
+                // Otherwise, calculate the maximum profit that can be made up to this day
+                else {
+                    newMatrix[i][j] = Math.max(newMatrix[i][j - 1], A[i][j] - A[i][buyDay]);
+                }
+                // If the profit for this day is higher than the maximum profit we've seen so far, update the variables
+                if(A[i][j] - A[i][buyDay] > maxProfit) {
+                    maxProfit = A[i][j] - A[i][buyDay];
+                    sellDay = j;
+                }
+                // If the profit for this day is higher than the maximum profit we've seen so far, update the variables
+                if(newMatrix[i][j] > maxProfit) {
+                    maxProfit = newMatrix[i][j];
+                    buyDay = j;
+                    sellDay = j;
+                }
+            }
+        
+        // Return the maximum profit that can be made
+        }
+        final long endTime = System.nanoTime();
+        long elapsedTimeMillis = (endTime - startTime);
+        System.out.println("|| ALG 3 took " + elapsedTimeMillis + " nanoseconds\tusing m = " + A.length + "\tn = " + A[0].length);
+    }
     // Memoization algorithm implementation
     public static void task3a() {
         Scanner scanner= new Scanner(System.in);
