@@ -21,11 +21,11 @@ public class ALG9 {
                 int maxProfit = newMatrix[i][j-1];
 
                 // Iterate through each possible stock to buy on day j-c-1 and sell on day j
-                for(int k = 0; k < m; k++) {
+                for(int l = 0; l < m; l++) {
                     // Check if it is possible to buy stock k on day j-c-1 and sell stock i on day j
                     if(j >= c+1 && j-c-1 >= 0) {
                         // Calculate the profit if we buy stock k on day j-c-1 and sell stock i on day j
-                        int profit = newMatrix[k][j-c-1] + A[i][j] - A[k][j-c];
+                        int profit = newMatrix[l][j-c-1] + A[i][j] - A[l][j-c];
                         // Update the maximum profit if the profit from buying stock k and selling stock i is greater
                         maxProfit = Math.max(maxProfit, profit);
                     }
@@ -102,8 +102,7 @@ public class ALG9 {
         for(int i = 0; i < m; i++) {
             // last day
             int j = n-1; 
-            // maximum profit, best buying day and best selling day for stock i on the last day
-            int maxProfit = newMatrix[i][j];
+            // best buying day and best selling day for stock i on the last day
             int buyDay = buyDays[i][j];
             int sellDay = sellDays[i][j];
             

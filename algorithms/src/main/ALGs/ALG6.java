@@ -7,55 +7,44 @@ public class ALG6 {
     public static int run_ALG6(int[][] A, int k) {
         final long startTime = System.nanoTime();
 
-        int maxProfit = 0;
         int m = A.length;
         int n = A[0].length;
-        int[][][] newMatrix = new int[m][n][k+1];
 
-        // initialize memoization table with -1
-        for(int i = 0; i < m; i++) {
-            for(int j = 0; j < n; j++) {
-                for(int s = 0; s <= k; s++) {
-                    newMatrix[i][j][s] = -1;
-                }
+        int[][][] dp = new int[k+1][n][2];
+        for (int i = 0; i <= k; i++) {
+            for (int j = 0; j < n; j++) {
+                Arrays.fill(dp[i][j], -1);
             }
         }
-        
-        // compute maximum profit for each (i, j, t) using memoization
-        for(int i = 0; i < m; i++) {
-            for(int j = 0; j < n; j++) {
-                for(int s = 0; s <= k; s++) {
-                    if(s == 0 || j == 0) {
-                        newMatrix[i][j][s] = 0; // base case
-                    }
-                    else {
-                        maxProfit = newMatrix[i][j-1][s]; // do nothing
-                        for(int d = 0; d < i; d++) { // buy and sell
-                            int profit = A[i][j] - A[d][j] + newMatrix[d][j-1][s-1];
-                            maxProfit = Math.max(maxProfit, profit);
-                        }
-                        newMatrix[i][j][s] = maxProfit;
-                    }
-                }
-            }
-        }
-        
-        // find maximum profit
-        for(int i = 0; i < m; i++) {
-            for(int s = 1; s <= k; s++) {
-                maxProfit = Math.max(maxProfit, newMatrix[i][n-1][s]);
-            }
-        }
+
         final long endTime = System.nanoTime();
         long elapsedTimeMillis = (endTime - startTime);
         System.out.println("|| ALG 6 took " + elapsedTimeMillis + " nanoseconds\tusing m = " + A.length + "\tn = " + A[0].length + "\tk = " + k);
-        return maxProfit;
+        // return the maximum profit and transaction sequence as an array
+        return helper(A, k, n-1, 0, dp);
+    }
+    
+    private static int helper(int[][] A, int k, int j, int status, int[][][] dp) {
+        if (j < 0 || k == 0) {
+            return 0;
+        }
+        if (dp[k][j][status] != -1) {
+            return dp[k][j][status];
+        }
+        int res = helper(A, k, j-1, status, dp);
+        if (status == 0) {
+            res = Math.max(res, helper(A, k, j-1, 1, dp) + A[k-1][j]);
+        } else {
+            res = Math.max(res, helper(A, k-1, j-1, 0, dp) - A[k-1][j]);
+        }
+        dp[k][j][status] = res;
+        return res;
     }
 
     // Memoization algorithm implementation
     public static void task6() {
         Scanner scanner = new Scanner(System.in);
-        String k = scanner.nextLine();
+        String tempK = scanner.nextLine();
         String lineOne = scanner.nextLine();
         String[] lineOneParts = lineOne.split("\\s+");
         int[][] copy = new int[Integer.valueOf(lineOneParts[0])][Integer.valueOf(lineOneParts[1])];
@@ -67,18 +56,19 @@ public class ALG6 {
             }
         }
         scanner.close();
+        int k = Integer.valueOf(tempK);
 
         int m = copy.length;
         int n = copy[0].length;
 
         int maxProfit = 0;
         int profit = 0;
-        int[][][] newMatrix = new int[m][n][Integer.parseInt(k)+1];
+        int[][][] newMatrix = new int[m][n][k+1];
         
         // Initialize memoization table with -1
         for(int i = 0; i < m; i++) {
             for(int j = 0; j < n; j++) {
-                for(int s = 0; s <= Integer.parseInt(k); s++) {
+                for(int s = 0; s <= k; s++) {
                     newMatrix[i][j][s] = -1;
                 }
             }
@@ -87,18 +77,23 @@ public class ALG6 {
         // compute the max profit for each i, j, s using memoization
         for(int i = 0; i < m; i++) {
             for(int j = 0; j < n; j++) {
-                for(int s = 0; s <= Integer.parseInt(k); s++) {
+                for(int s = 0; s <= k; s++) {
                     if(s == 0 || j == 0) {
-                        newMatrix[i][j][s] = 0; // base case
+                        // base case
+                        newMatrix[i][j][s] = 0; 
                     } 
                     else {
-                        maxProfit = newMatrix[i][j-1][s]; // do nothing
-                        for(int d = 0; d < i; d++) { // buy and sell
+                        // do nothing
+                        maxProfit = newMatrix[i][j-1][s]; 
+                        // buy and sell
+                        for(int d = 0; d < i; d++) { 
                             profit = copy[i][j] - copy[d][j] + newMatrix[d][j-1][s-1];
                             maxProfit = Math.max(maxProfit, profit);
                         }
                         newMatrix[i][j][s] = maxProfit;
-                    } 
+                    }
+                    // update max profit
+                    maxProfit = Math.max(maxProfit, newMatrix[i][j][s]);
                 }
             }
         }
@@ -106,10 +101,11 @@ public class ALG6 {
         // find optimal transaction sequence by backtracking memoization table
         int i = m-1;
         int j = n-1;
-        int s = Integer.parseInt(k);
+        int s = k;
         while(i >= 0 && j >= 0 && s > 0) {
             if(newMatrix[i][j][s] == newMatrix[i][j-1][s]) {
-                j--; // do nothing
+                // do nothing
+                j--; 
             } 
             else {
                 int max = newMatrix[i][j][s];

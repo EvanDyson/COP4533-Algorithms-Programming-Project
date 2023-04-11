@@ -47,8 +47,7 @@ public class ALG3 {
     
     // Memoization algorithm implementation
     public static void task3a() {
-        Scanner scanner = new Scanner(System.in);
-        String tempK = scanner.nextLine();
+        Scanner scanner= new Scanner(System.in);
         String lineOne = scanner.nextLine();
         String[] lineOneParts = lineOne.split("\\s+");
         int[][] A = new int[Integer.valueOf(lineOneParts[0])][Integer.valueOf(lineOneParts[1])];
