@@ -10,10 +10,10 @@ public class ALG6 {
         int m = A.length;
         int n = A[0].length;
 
-        int[][][] dp = new int[k+1][n][2];
+        int[][][] newMatrix = new int[k+1][n][2];
         for (int i = 0; i <= k; i++) {
             for (int j = 0; j < n; j++) {
-                Arrays.fill(dp[i][j], -1);
+                Arrays.fill(newMatrix[i][j], -1);
             }
         }
 
@@ -21,23 +21,24 @@ public class ALG6 {
         long elapsedTimeMillis = (endTime - startTime);
         System.out.println("|| ALG 6 took " + elapsedTimeMillis + " nanoseconds\tusing m = " + A.length + "\tn = " + A[0].length + "\tk = " + k);
         // return the maximum profit and transaction sequence as an array
-        return helper(A, k, n-1, 0, dp);
+
+        return helper(A, k, n-1, 0, newMatrix);
     }
     
-    private static int helper(int[][] A, int k, int j, int status, int[][][] dp) {
+    private static int helper(int[][] A, int k, int j, int status, int[][][] newMatrix) {
         if (j < 0 || k == 0) {
             return 0;
         }
-        if (dp[k][j][status] != -1) {
-            return dp[k][j][status];
+        if (newMatrix[k][j][status] != -1) {
+            return newMatrix[k][j][status];
         }
-        int res = helper(A, k, j-1, status, dp);
+        int res = helper(A, k, j-1, status, newMatrix);
         if (status == 0) {
-            res = Math.max(res, helper(A, k, j-1, 1, dp) + A[k-1][j]);
+            res = Math.max(res, helper(A, k, j-1, 1, newMatrix) + A[k-1][j]);
         } else {
-            res = Math.max(res, helper(A, k-1, j-1, 0, dp) - A[k-1][j]);
+            res = Math.max(res, helper(A, k-1, j-1, 0, newMatrix) - A[k-1][j]);
         }
-        dp[k][j][status] = res;
+        newMatrix[k][j][status] = res;
         return res;
     }
 
